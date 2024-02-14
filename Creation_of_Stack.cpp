@@ -96,3 +96,101 @@ int main()
     
     return 0;
 }
+
+
+//Another way 
+
+#include <iostream>
+using namespace std;
+
+#define MAXSIZE 10
+#define clrscr system("cls")
+class MyStack
+{
+    private:
+    int stack[MAXSIZE],top;
+    public:
+    MyStack()
+    {
+        top=-1;
+    }
+    void push();  
+    void pop();   
+    void display();  
+};
+void MyStack::push()
+{
+    int n;
+    if(top == MAXSIZE -1 )
+    {
+        cout<<"\nStack is in Overflow ";
+    }
+    else
+    {
+       
+        top++;
+        cout<<"Enter element for push : ";
+        cin>>n;
+        stack[top]=n;
+    }
+}
+
+void MyStack::pop()
+{
+    int n;
+    if(top ==  -1 )
+    {
+        cout<<"\nStack is in Underflow ";
+    }
+    else
+    {
+       n = stack[top];
+       n--;
+       cout<<"\n Poped  element";
+        
+    }
+}
+void MyStack::display()
+{
+    if(top ==  -1 )
+    {
+        cout<<"\nStack is empty ";
+    }
+    else
+    {
+        cout<<"Stack Element : ";
+        for(int i = top ; i >=0; i--)
+        {
+            cout<<stack[i]<<"\n";
+        }
+    }
+}
+
+int main()
+{
+   int choice;
+   MyStack s;
+   
+   do
+   {
+       cout<<"\n----------------Stack Menu---------------";
+       cout<<"\n1 PUSH";
+       cout<<"\n2 POP";
+       cout<<"\n3 DISPALY";
+       cout<<"\n4 EXIT";
+       cout<<"\n----------------------------------------";
+       cout<<"\nEnter your choice  : ";
+       cin>>choice;
+       switch(choice)
+       {
+           case 1: s.push(); break;
+           case 2: s.pop(); break;
+           case 3: s.display(); break;
+           case 4:  break;
+           default:cout<<"\n Invalid choice";
+       }
+    }
+    while(choice!=4);
+    return 0;
+}
+
